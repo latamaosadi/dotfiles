@@ -1,0 +1,13 @@
+[user]
+	name = Robert Latamaosadi
+	email = robert.latamaosadi@gmail.com
+[core]
+	excludesfile = /Users/latamaosadi/.gitignore
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
