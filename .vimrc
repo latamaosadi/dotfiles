@@ -68,6 +68,8 @@ colorscheme zephyr
 let g:lightline = {
     \ 'colorscheme': 'landscape'
     \ }
+hi CursorLine term=bold cterm=bold guibg=NONE
+hi Visual guifg=#f51a9e guibg=#ffffff term=reverse cterm=reverse gui=none
 
 let loaded_matchparen = 1
 let mapleader = " "
