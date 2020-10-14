@@ -38,6 +38,8 @@ set shortmess+=c
 set colorcolumn=80
 " highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+set guifont=Fira\ Code:h16
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tweekmonster/gofmt.vim'
@@ -56,9 +58,11 @@ Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'jwalton512/vim-blade'
 
 " Color Schemes Plugins
 Plug 'flazz/vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'wadackel/vim-dogrun'
 Plug 'artanikin/vim-synthwave84'
 
@@ -70,7 +74,7 @@ let g:lightline = {
       \ 'colorscheme': 'deus',
       \ }
 
-colorscheme synthwave84
+colorscheme gruvbox
 
 " hi CursorLine term=bold cterm=bold guibg=NONE
 " hi Visual guifg=#f51a9e guibg=#ffffff term=reverse cterm=reverse gui=none
@@ -120,9 +124,13 @@ function! LightlineReload()
   call lightline#colorscheme()
   call lightline#update()
 endfunction
-" fun! TrimWhitespace()
-    " let l:save = winsaveview()
-    " keeppatterns %s/\s\+$//e
-    " call winrestview(l:save)
-" endfun
 
+" Trim whitespace function
+" https://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
+command! TrimWhitespace call TrimWhitespace()
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
