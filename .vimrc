@@ -55,6 +55,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Color Schemes Plugins
 Plug 'flazz/vim-colorschemes'
