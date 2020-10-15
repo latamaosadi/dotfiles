@@ -119,6 +119,15 @@ nnoremap <leader><CR> :nohlsearch<CR>
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+noremap <C-u> <C-u>zz
+noremap <C-d> <C-d>zz
+
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
