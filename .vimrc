@@ -2,7 +2,6 @@ syntax on
 
 set guicursor=
 set relativenumber
-set nohlsearch
 set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -19,9 +18,11 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
-" set noshowmode
+set noshowmode
 set completeopt=menuone,noinsert,noselect
 set backspace=indent,eol,start
+set hlsearch
+set signcolumn=yes
 
 " Give more space for displaying messages.
 set cmdheight=1
@@ -36,7 +37,10 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
-" highlight ColorColumn ctermbg=0 guibg=lightgrey
+" let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+" highlight Visual term=reverse cterm=reverse guibg=Grey
+highlight Comment cterm=italic gui=italic
 
 set guifont=Fira\ Code:h16
 
@@ -59,6 +63,7 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jwalton512/vim-blade'
+Plug 'airblade/vim-gitgutter'
 
 " Color Schemes Plugins
 Plug 'flazz/vim-colorschemes'
@@ -68,16 +73,19 @@ Plug 'artanikin/vim-synthwave84'
 
 call plug#end()
 
-" let g:gruvbox_contrast_dark = 'hard'
-" let g:gruvbox_invert_selection='0'
 let g:lightline = {
       \ 'colorscheme': 'deus',
       \ }
 
 colorscheme gruvbox
 
+let g:gruvbox_hls_cursor = 'orange'
+let g:gruvbox_invert_selection=0
+
 " hi CursorLine term=bold cterm=bold guibg=NONE
 " hi Visual guifg=#f51a9e guibg=#ffffff term=reverse cterm=reverse gui=none
+
+let g:gitgutter_async=1
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -107,6 +115,7 @@ let g:fzf_branch_actions = {
 
 set timeoutlen=1000 ttimeoutlen=0
 nnoremap <leader>p :Files<CR>
+nnoremap <leader><CR> :nohlsearch<CR>
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
