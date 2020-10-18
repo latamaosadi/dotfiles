@@ -64,6 +64,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jwalton512/vim-blade'
 Plug 'airblade/vim-gitgutter'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'posva/vim-vue'
 
 " Color Schemes Plugins
 Plug 'flazz/vim-colorschemes'
@@ -115,6 +117,7 @@ let g:fzf_branch_actions = {
 
 set timeoutlen=1000 ttimeoutlen=0
 nnoremap <leader>p :Files<CR>
+nmap <leader><CR> :noh<cr>
 nnoremap <leader><CR> :nohlsearch<CR>
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -152,3 +155,10 @@ fun! TrimWhitespace()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
+
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
