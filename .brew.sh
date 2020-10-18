@@ -38,7 +38,8 @@ brew install python
 brew install redis
 brew install imagemagick
 brew install tmuxinator
-brew install mvim
+brew install macvim
 brew install the_silver_searcher
+brew install git-flow
 
 brew cleanup
