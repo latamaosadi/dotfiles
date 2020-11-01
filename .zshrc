@@ -111,6 +111,8 @@ export EDITOR='vim'
 alias zshconfig="vim ~/Dotfiles/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mux=tmuxinator
+alias vim=nvim
+alias vi=nvim
 
 export TERM="xterm-256color"
 
