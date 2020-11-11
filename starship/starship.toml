@@ -1,0 +1,13 @@
+# ~/.config/starship.toml
+
+[character]
+symbol = "🦄"
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 6
+
+[git_status]
+style = "bold green"
