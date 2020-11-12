@@ -80,7 +80,8 @@ yabai -m space 3 --label "🛠  Productivity"
 
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add label=safari app="^Safari$" space=1 window_opacity off
-yabai -m rule --add label=iTerm2 app="^iTerm2$" space=2
+yabai -m rule --add label=iTerm2 app="^Visual Code$" space=2
+yabai -m rule --add label=todo app="^TickTick$" space=2
 yabai -m rule --add label=firefox app="^Firefox Developer Edition$" space=2 window_opacity off
 yabai -m rule --add label=email app="^Spark$" space=3
 yabai -m rule --add label=todo app="^TickTick$" space=3
@@ -92,3 +93,16 @@ yabai -m rule --add label=todo app="^TickTick$" space=3
 yabai -m config external_bar main:40:0
 # add 20 padding to the top and bottom of all spaces regardless of the display it belongs to
 # yabai -m config external_bar all:20:20
+
+yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+yabai -m signal --add event=display_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+yabai -m signal --add event=space_changed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+yabai -m signal --add event=window_focused action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+yabai -m signal --add event=window_focused action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+yabai -m signal --add event=application_front_switched action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+yabai -m signal --add event=application_front_switched action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+yabai -m signal --add event=window_destroyed action="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
